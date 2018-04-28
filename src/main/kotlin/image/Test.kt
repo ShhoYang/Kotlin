@@ -4,6 +4,9 @@ import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 
+/**
+ * 制作图片
+ */
 fun main(args: Array<String>) {
     var image = BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB)
     image.setRGB(0,0,0xFF0000)
@@ -12,7 +15,7 @@ fun main(args: Array<String>) {
     image.apply {
         for(i in w){
             for(j in h){
-                setRGB(i,j,0xFF0000)
+                setRGB(i,j,0x00FFFF)
             }
         }
     }
