@@ -1,4 +1,4 @@
-package proxy
+package 代理
 
 class Boss : IWorking by My {
 //    override fun working() {

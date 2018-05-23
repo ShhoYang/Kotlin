@@ -1,4 +1,4 @@
-package enum
+package 枚举
 
 enum class Week{
 

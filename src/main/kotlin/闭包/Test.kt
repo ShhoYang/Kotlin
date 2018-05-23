@@ -1,8 +1,5 @@
-package closure
+package 闭包
 
-/**
- * 闭包
- */
 fun test():()->Unit{
     var i = 3
     return fun(){

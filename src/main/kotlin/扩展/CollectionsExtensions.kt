@@ -1,10 +1,5 @@
 package com.hao.kt2.extensions
 
-/**
- * @author Yang Shihao
- * @date 2018/5/3
- */
-
 fun <K, V : Any> Map<K, V?>.toVarargArray(): Array<out Pair<K, V>> =
         map({ Pair(it.key, it.value!!) }).toTypedArray()
 

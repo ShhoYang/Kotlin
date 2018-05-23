@@ -1,10 +1,10 @@
 package lambda;
 
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -31,16 +31,15 @@ public class Test {
 //        list.forEach(x -> System.out.println(x));
 
 
-        List<Integer> list1 = Arrays.asList(10, 20, 30);
-        Stream<Integer> stringStream = list1.stream().map(x -> x + 1).filter(x -> x > 20);
+        List<Integer> list = Arrays.asList(10, 20, 30);
+        Stream<Integer> stringStream = list.stream().map(x -> x + 1).filter(x -> x > 20);
         List<Integer> collect = stringStream.collect(Collectors.toList());
         collect.forEach(System.out::println);
 
-        List<Integer> list2 = Arrays.asList(10, 20, 30);
         /**
          * 一个参数,可以省略参数的括号和类型
          */
-        Optional<Integer> reduce = list2.stream().map(x -> x + 1).reduce((sum, x) -> sum + x);
+        Optional<Integer> reduce = list.stream().map(x -> x + 1).reduce((sum, x) -> sum + x);
         Integer integer = reduce.get();
         System.out.println(integer);
 
@@ -48,5 +47,31 @@ public class Test {
          * 没有参数,但参数的括号不能省略
          */
         new Thread(() -> System.out.println(Thread.currentThread().getName())).start();
+
+        testOneParams(s -> System.out.println(s));
+
+        String s = list.stream().map(integer1 -> integer1 + "").collect(Collectors.joining(", "));
+        System.out.println(s);
+
+        Stream<Integer> stream = list.stream();
+        IntStream intStream = stream.mapToInt(x -> x);
+        IntSummaryStatistics intSummaryStatistics = intStream.summaryStatistics();
+
+        System.out.println("max = " +intSummaryStatistics.getMax());
+        System.out.println("min = " +intSummaryStatistics.getMin());
+        System.out.println("count = " +intSummaryStatistics.getCount());
+        System.out.println("sum = " +intSummaryStatistics.getSum());
+        System.out.println("average = " +intSummaryStatistics.getAverage());
+    }
+
+    private static void testOneParams(Consumer<String> consumer) {
+        consumer.accept("testOneParams");
+
+    }
+
+    interface I {
+        default int add(int x, int y) {
+            return x + y;
+        }
     }
 }

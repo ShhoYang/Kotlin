@@ -1,8 +1,5 @@
-package method
+package 定义方法
 
-/**
- * 定义方法
- */
 fun main(args: Array<String>) {
     var i = { x: Int, y: Int -> x + y }
     println(i(3, 5))
