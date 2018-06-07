@@ -1,9 +1,7 @@
 package test;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Objects;
 
 public class Test {
 
@@ -14,8 +12,8 @@ public class Test {
         System.out.println("".isEmpty());
     }
 
-
     public static void calculate() {
         throw new NullPointerException("kong");
     }
+
 }

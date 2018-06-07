@@ -1,4 +1,4 @@
-package 自定义类型
+package 类型别名
 
 typealias MyType = Map<String, Int>
 
