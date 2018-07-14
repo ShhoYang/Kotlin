@@ -8,7 +8,7 @@ public class SuperTest {
     public static class Father {
 
         protected void print() {
-            System.out.println("I am a 定义方法 in father");
+            System.out.println("I am a 函数 in father");
         }
     }
 
