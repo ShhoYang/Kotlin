@@ -31,6 +31,7 @@ class Derived(b: Base) : Base by b {
 }
 
 fun main(args: Array<String>) {
+    args.filter { it != "3" }.forEach { println(it) }
     val b = BaseImpl(2)
     val derived = Derived(b)
 

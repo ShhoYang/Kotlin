@@ -55,6 +55,5 @@ fun main(args: Array<String>) {
     val result = runTransformation(repeat) // OK
 
     println("result = $result")
-
 }
 
