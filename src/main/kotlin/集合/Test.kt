@@ -5,7 +5,7 @@ import javax.sound.midi.Soundbank
 fun main(args: Array<String>) {
 
     var mutableListOf = mutableListOf(1, 2, 3, 4)
-    var readOnlyList:List<Int> = mutableListOf
+    var readOnlyList: List<Int> = mutableListOf
 
 //    println(mutableListOf)
 //    println(readOnlyList)
@@ -16,35 +16,49 @@ fun main(args: Array<String>) {
 
 
     // 不可变,使用ArrayList实现的
-    var listOf = listOf(null,"9", "7", "8",null)
+    var listOf = listOf(null, "9", "7", "8", null)
     var requireNoNulls = listOf.firstOrNull()
     println(requireNoNulls)
 
-    if(listOf.none { it== "9" }){
+    if (listOf.none { it == "9" }) {
         println("no 9")
-    }else {
+    } else {
         println("9")
     }
 
-    var list = List(10){
+    var list = List(10) {
 
-        index -> index * index
+        index ->
+        index * index
     }
 
 //    println(list)
 
-    var list2 = MutableList(10){index -> index*2 }
+    var list2 = MutableList(10) { index -> index * 2 }
 
 //    println(list2)
 
     var listOf1 = listOf(1, 2)
     var ofType = listOf1.ofType<Int>()
     println(ofType)
+
+
+    var listB =   arrayOf(B(),B())
+    //f(listB)  // Kotlin 也禁止我们把一个子类的数组当做超类的数组传递给 Kotlin 的方法
+
 }
 
- inline fun <reified T> List<*>.ofType():List<T>?{
-    if(all { it is T }){
+open class A
+
+class B : A()
+
+fun f(listA: Array<A>) {
+
+}
+
+inline fun <reified T> List<*>.ofType(): List<T>? {
+    if (all { it is T }) {
         return this as List<T>
     }
-   return null
+    return null
 }

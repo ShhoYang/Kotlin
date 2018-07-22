@@ -55,5 +55,14 @@ fun main(args: Array<String>) {
     val result = runTransformation(repeat) // OK
 
     println("result = $result")
+
+    var arrayOfMinusOnes = arrayOfMinusOnes(10)
+    arrayOfMinusOnes.forEach { println(it) }
+    println(arrayOfMinusOnes[11])
 }
+
+fun arrayOfMinusOnes(size: Int): IntArray {
+    return IntArray(size).apply { fill(-1) }
+}
+
 
