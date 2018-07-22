@@ -6,6 +6,13 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.concurrent.ThreadPoolExecutor
 
+fun main(args: Array<String>) {
+    foo(listOf(1, 2, 3))
+    foo1()
+    foo2()
+    foo3()
+}
+
 //kotlin的类最多只能继承一个java类或者接口
 //class Example:Person(),Student(){
 //
@@ -106,11 +113,4 @@ fun foo4() {
     var runnable = Runnable { println("This runs in a runnable") }
     val threadPool = Executors.newCachedThreadPool()
     threadPool.execute { println("this runs in a thread pool") }
-}
-
-fun main(args: Array<String>) {
-    foo(listOf(1, 2, 3))
-    foo1()
-    foo2()
-    foo3()
 }

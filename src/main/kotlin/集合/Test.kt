@@ -43,8 +43,12 @@ fun main(args: Array<String>) {
     println(ofType)
 
 
-    var listB =   arrayOf(B(),B())
-    //f(listB)  // Kotlin 也禁止我们把一个子类的数组当做超类的数组传递给 Kotlin 的方法
+    var listB = arrayOf(B(), B())
+    //f(listB)  // Kotlin 禁止我们把一个子类的数组当做超类的数组传递给 Kotlin 的方法,但是集合可以，这正好和java相反
+
+    //
+    var listB2 = kotlin.collections.listOf(B())
+    f2(listB2)
 
 }
 
@@ -53,6 +57,10 @@ open class A
 class B : A()
 
 fun f(listA: Array<A>) {
+
+}
+
+fun f2(listA: List<A>) {
 
 }
 
